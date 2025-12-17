@@ -1,0 +1,18 @@
+#header {
+  height: 130px;
+  width: 100%;
+  background-color: rgb(34, 234, 234);
+}
+
+.content {
+  padding: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 19px;
+  color: rgb(42, 40, 40);
+}
+#footer {
+  height: 40px;
+  width: 100%;
+  text-align: center;
+  padding-top: 780px;
+}
