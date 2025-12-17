@@ -12,6 +12,9 @@ include 'header.php';?>
         </div>
         <div>
             <input type="submit" value="login" >
+              <p>Don't have an account?</p>
+        <a href="register.php" class="register-btn">Register</a>
+            
         </div>
     </form>
 </div>
