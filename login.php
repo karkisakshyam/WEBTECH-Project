@@ -11,7 +11,8 @@ include 'header.php';?>
             <input type="password" name="password" id="">
         </div>
         <div>
-            <input type="submit" value="login">
+            <input type="submit" value="login" >
         </div>
     </form>
 </div>
+<?php include 'footer.php'; ?>
