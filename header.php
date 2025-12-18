@@ -24,4 +24,7 @@
             <a href="login.php">Login</a> |
             <a href="register.php">Register</a>
         </div>
+        <div id="logout">
+            <a href="logout">Logout</a>
+        </div>
     </div>

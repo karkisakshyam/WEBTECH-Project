@@ -1,5 +1,10 @@
 <?php
-session_start();
-echo "Welcome to the Admin Dashboard!" . $user;
-$user = $_SESSION['user']
+include 'header.php';
 ?>
+<div class="container">
+    <?php
+    $user = $_SESSION['user'];
+    echo "Welcome" . $user;?>
+
+</div>
+<?php include 'footer.php'; ?>

@@ -108,6 +108,13 @@ form button:hover {
   text-decoration: underline;
 }
 
+.logout {
+  color: white;
+  text-decoration: none;
+  padding: 6px 14px;
+  border: 1px solid white;
+  border-radius: 5px;
+}
 footer {
   text-align: center;
   padding: 20px;
