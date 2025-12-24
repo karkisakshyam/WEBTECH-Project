@@ -1,6 +1,6 @@
 <?php
 session_start();
-require "config/db.php";
+require "database.php";
 
 $name = trim($_POST['name']);
 $email = trim($_POST['email']);
