@@ -1,22 +1,25 @@
+<?php
+session_start();
+require "config/db.php";
 
+$name = trim($_POST['name']);
+$email = trim($_POST['email']);
+$password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
+$check = $conn->prepare("SELECT id FROM users WHERE email=?");
+$check->bind_param("s", $email);
+$check->execute();
+$check->store_result();
 
+if ($check->num_rows > 0) {
+    echo "<script>alert('Email already exists');window.location='register.php';</script>";
+    exit();
+}
 
+$stmt = $conn->prepare("INSERT INTO users (name,email,password) VALUES (?,?,?)");
+$stmt->bind_param("sss", $name, $email, $password);
+$stmt->execute();
 
-
-
-
-
-
-
-
-
-
-
-$name = $_POST['full_name'];
-$phone = $_POST['phone'];
-$email = $_POST['email'];
-$password = $_POST['password'];
-
-
-$query = "insert into users (name, phone, email, password) values('$name', '$phone', '$email', '$password')"
+$_SESSION['user'] = $name;
+header("Location: dashboard.php");
+?>
