@@ -1,36 +1,31 @@
 <?php
 require "database.php";
 
-session_start(); // Must be at the very top
+session_start(); // must be started at the beginning of the script
 
-$username = $_POST['username'] ?? '';
-$password = $_POST['password'] ?? '';
+$email = $_POST['email'];
+$password = $_POST['password'];
 
+$hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-
-
-$hashed_password = password_hash($password,PASSWORD_DEFAULT);
-
-
-$query = "select count(*) from users where email = '$email' and password = '$hashed_password'";
+$query = "select count(*) from users where email='$email'";
 
 $res = mysqli_query($db_connection, $query);
+$count = mysqli_num_rows($res);
 
-if ($username === "admin" && $password === "123") {
+echo $count;    
 
-    $_SESSION['user'] = 'admin';
+die;
 
+
+if($username === 'admin' && $password === '123') {
+    
+    $_SESSION['user'] = 'admin'; // Store user info in session
     header("Location: dashboard.php");
-    exit;
-
-} elseif ($username === "customer" && $password === "123") {
-
-    $_SESSION['user'] = 'customer';
+} else if($username == 'customer' && $password === '123') {
+    $_SESSION['user'] = 'customer'; // Store user info in session
     header("Location: dashboard.php");
-    exit;
-
 } else {
-
-    echo "Invalid credentials. Please try again.";
+    // Failed login
+    echo "Invalid username or password. Please try again.";
 }
-?>

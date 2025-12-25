@@ -1,25 +1,32 @@
 <?php
-session_start();
-require "database.php";
+require 'database.php';
 
-$name = trim($_POST['name']);
-$email = trim($_POST['email']);
-$password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+if (isset($_POST)) {
+    $name=$phone=$email=$password="";
 
-$check = $conn->prepare("SELECT id FROM users WHERE email=?");
-$check->bind_param("s", $email);
-$check->execute();
-$check->store_result();
+    if (isset($_POST['full_name']) & !empty($_POST['full_name'])) {
+        $name = $_POST['full_name'];
+    }else {
+        header("Location: register.php?name_empty=1");
+    }
 
-if ($check->num_rows > 0) {
-    echo "<script>alert('Email already exists');window.location='register.php';</script>";
-    exit();
+$name = $_POST['full_name'];
+$phone = $_POST['phone'];
+$email = $_POST['email'];
+$password = password_hash($_POST['password'], PASSWORD_DEFAULT) ;
+
+    $query = "INSERT INTO users (name, phone, email, password) VALUES ('$name', '$phone', '$email', '$password')";
+    $res = mysqli_query($db_connection, $query);
+    if ($res) {
+        header("Location: login.php");
+    }else {
+        echo "Error: ";  
+}
+}
+else {
+    header("Location: register.php");
 }
 
-$stmt = $conn->prepare("INSERT INTO users (name,email,password) VALUES (?,?,?)");
-$stmt->bind_param("sss", $name, $email, $password);
-$stmt->execute();
 
-$_SESSION['user'] = $name;
-header("Location: dashboard.php");
+
 ?>

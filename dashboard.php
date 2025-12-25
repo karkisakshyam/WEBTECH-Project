@@ -1,10 +1,14 @@
 <?php
+
 include 'header.php';
 ?>
-<div class="container">
-    <?php
-    $user = $_SESSION['user'];
-    echo "Welcome" . $user;?>
-
+<div class="content">
+   <?php
+   $user = $_SESSION['users'];
+   echo "welcome $user";
+?>
 </div>
-<?php include 'footer.php'; ?>
+
+<?php
+include 'footer.php';
+?>
