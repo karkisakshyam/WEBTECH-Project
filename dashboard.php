@@ -1,6 +1,6 @@
 <?php
 
-include 'header.php';
+include 'header.php'; // includes header at the page
 ?>
 <div class="content">
    <?php
