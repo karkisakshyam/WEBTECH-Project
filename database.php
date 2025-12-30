@@ -1,3 +1,4 @@
+// connects database with main project
 <?php
 $db_host = 'localhost';
 $db_user = 'root';
