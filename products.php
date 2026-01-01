@@ -16,4 +16,5 @@ require "database.php";
                 <p><?php echo $products['price']; ?></p>
                 <p><?php echo $products['description']; ?></p>
                 </div>
-            <?php }?>
+            <?php }
+            ?>
