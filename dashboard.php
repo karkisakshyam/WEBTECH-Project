@@ -1,6 +1,6 @@
 <?php
 
-include 'header.php'; // includes header at the page
+include 'header.php';
 ?>
 <div class="content">
    <?php
@@ -9,4 +9,6 @@ include 'header.php'; // includes header at the page
 ?>
 </div>
 
-<?php include 'footer.php'; ?> // adds footer at the page
+<?php
+include 'footer.php';
+?>
