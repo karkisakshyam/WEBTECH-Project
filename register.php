@@ -13,6 +13,7 @@
         <div>
             <label>phone</label>
             <input type="number" id="phone" name="phone">
+            
         </div>
         <div>
             <label for="username">Email:</label>
@@ -29,5 +30,5 @@
     </form>
 </div>
 <?php
-include 'footer.php'; //include footer file
+include 'footer.php';
 ?>
